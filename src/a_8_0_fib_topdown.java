@@ -5,9 +5,10 @@ public class a_8_0_fib_topdown {
 	}
 	
 	int fibonacci(int i, int[] memo) {
-		if (i == 0 || i == 1) return i;
-		
-		if (memo[i] == 0) {
+		if(i == 0 || i == 1) {
+			return i;
+		}
+		if(memo[i] == 0) {
 			memo[i] = fibonacci(i - 1, memo) + fibonacci(i - 2, memo);
 		}
 		return memo[i];

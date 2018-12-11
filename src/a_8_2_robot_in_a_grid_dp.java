@@ -8,31 +8,30 @@ public class a_8_2_robot_in_a_grid_dp {
 			return null;
 		}
 		ArrayList<Point> path = new ArrayList<Point>();
-		HashSet<Point> failedPoints = new HashSet<Point>();
-		if (getPath(maze, maze.length - 1, maze[0].length - 1, path, failedPoints)) {
+		HashSet<Point> failedpoints = new HashSet<Point> ();
+		if (getPath(maze, maze.length - 1, maze[0].length - 1, path, failedpoints)) {
 			return path;
 		}
+
 		return null;
 	}
 	
 	boolean getPath(boolean[][] maze, int row, int col, ArrayList<Point> path, HashSet<Point> failedPoints) {
-		if (col < 0 || row < 0 || maze[row][col]) {
+		if(col < 0 || row < 0 || !maze[row][col]) {
 			return false;
 		}
-		
 		Point p = new Point(row, col);
 		if (failedPoints.contains(p)) {
 			return false;
 		}
 		
 		boolean isAtOrigin = (row == 0) && (col == 0);
-		
-		if(isAtOrigin || getPath(maze, row, col - 1, path, failedPoints) || getPath(maze, row - 1, col, path, failedPoints)) {
+		if (isAtOrigin || getPath(maze, row - 1, col, path, failedPoints) || getPath(maze, row, col - 1, path, failedPoints)) {
 			path.add(p);
 			return true;
 		}
 		
 		failedPoints.add(p);
 		return false;
-	}
+	}	
 }
