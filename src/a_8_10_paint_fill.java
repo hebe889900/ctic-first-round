@@ -10,16 +10,16 @@ public class a_8_10_paint_fill {
 	}
 	
 	boolean PaintFill(Color[][] screen, int r, int c, Color ocolor, Color ncolor) {
-		if (r < 0|| r >= screen.length || c < 0 || c >= screen[0].length) {
+		if(r < 0 || r >= screen.length || c < 0 || c >= screen.length ) {
 			return false;
 		}
 		
-		if (screen[r][c] == ocolor) {
+		if (ocolor == screen[r][c]) {
 			screen[r][c] = ncolor;
-			PaintFill(screen, r - 1, c, ocolor, ncolor);
 			PaintFill(screen, r + 1, c, ocolor, ncolor);
-			PaintFill(screen, r, c - 1, ocolor, ncolor);
+			PaintFill(screen, r - 1, c, ocolor, ncolor);
 			PaintFill(screen, r, c + 1, ocolor, ncolor);
+			PaintFill(screen, r, c - 1, ocolor, ncolor);
 		}
 		return true;
 	}

@@ -15,7 +15,6 @@ public class a_8_14_boolean_evaluation_botup {
 		}
 		
 		int ways = 0;
-		
 		for (int i = 1; i < s.length(); i += 2) {
 			char c = s.charAt(i);
 			String left = s.substring(0, i);
@@ -24,15 +23,14 @@ public class a_8_14_boolean_evaluation_botup {
 			int leftFalse = countEval(left, false, memo);
 			int rightTrue = countEval(right, true, memo);
 			int rightFalse = countEval(right, false, memo);
-			
 			int total = (leftTrue + leftFalse) * (rightTrue + rightFalse);
 			int totalTrue = 0;
-			if (c == '^') {
+			if(c == '^') {
 				totalTrue = leftTrue * rightFalse + leftFalse * rightTrue;
 			} else if (c == '&') {
 				totalTrue = leftTrue * rightTrue;
 			} else if (c == '|') {
-				totalTrue = leftTrue * rightTrue + leftFalse * rightTrue + leftTrue * rightFalse;
+				totalTrue = leftTrue * rightTrue + leftTrue * rightFalse + leftFalse * rightTrue;
 			}
 			
 			int subWays = result ? totalTrue : total - totalTrue;
