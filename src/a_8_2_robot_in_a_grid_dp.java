@@ -21,17 +21,17 @@ public class a_8_2_robot_in_a_grid_dp {
 			return false;
 		}
 		Point p = new Point(row, col);
-		if (failedPoints.contains(p)) {
+		if(failedPoints.contains(p)) {
 			return false;
 		}
 		
 		boolean isAtOrigin = (row == 0) && (col == 0);
-		if (isAtOrigin || getPath(maze, row - 1, col, path, failedPoints) || getPath(maze, row, col - 1, path, failedPoints)) {
+		if(isAtOrigin || getPath(maze, row - 1, col, path, failedPoints) || getPath(maze, row, col - 1, path, failedPoints)) {
 			path.add(p);
 			return true;
 		}
-		
 		failedPoints.add(p);
 		return false;
+		
 	}	
 }
