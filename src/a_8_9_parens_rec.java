@@ -4,14 +4,14 @@ import java.util.Set;
 public class a_8_9_parens_rec {
 	Set<String> generateParens(int remaining) {
 		Set<String> set = new HashSet<String>();
-		if (remaining == 0) {
+		if(remaining == 0) {
 			set.add("");
 		} else {
 			Set<String> prev = generateParens(remaining - 1);
-			for (String str: prev) {
-				for (int i = 0; i < str.length(); i++) {
-					if (str.charAt(i) == '(') {
-						String s = insertInside(str, i);
+			for(String str: prev) {
+				for(int i = 0; i < str.length(); i++) {
+					if(str.charAt(i) == '(') {
+						String s = insertInside(str,i);
 						set.add(s);
 					}
 				}

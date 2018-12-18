@@ -21,16 +21,16 @@ public class a_8_8_permutation_with_dups {
 	}
 	
 	void printPerms(HashMap<Character, Integer> map, String prefix, int remaining, ArrayList<String> result) {
-		if (remaining == 0) {
+		if(remaining == 0) {
 			result.add(prefix);
 			return;
 		}
 		
-		for (Character c : map.keySet()) {
+		for(Character c: map.keySet()){
 			int count = map.get(c);
-			if (count > 0) {
+			if(count > 0) {
 				map.put(c, count - 1);
-				printPerms(map, prefix + c, remaining - 1, result);
+				printPerms(map, prefix + c, remaining - 1,result);
 				map.put(c, count);
 			}
 		}
