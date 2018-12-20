@@ -6,22 +6,25 @@ import CtCILibrary.HashMapList;
 
 public class a_10_2_anagram implements Comparator<String> {
 	void sort(String[] array) {
-		HashMapList<String, String> mapList = new HashMapList<String, String>();
+		HashMapList<String, String> maplist = new HashMapList<String, String>();
 		
-		for (String s: array) {
+		for(String s: array) {
 			String key = sortChars(s);
-			mapList.put(key, s);
+			maplist.put(key, s);
 		}
 		
 		int index = 0;
-		for (String key : mapList.keySet()) {
-			ArrayList<String> list = mapList.get(key);
-			for (String t : list) {
+		for(String key: maplist.keySet()) {
+			ArrayList<String> list = maplist.get(key);
+			for(String t: list) {
 				array[index] = t;
 				index ++;
 			}
 		}
 	}
+	
+
+	
 	
 	String sortChars(String s) {
 		char[] content = s.toCharArray();

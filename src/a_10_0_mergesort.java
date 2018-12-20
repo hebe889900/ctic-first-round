@@ -15,16 +15,15 @@ public class a_10_0_mergesort {
 	}
 	
 	void merge(int[] array, int[] helper, int low, int middle, int high) {
-		for (int i = low; i <= high; i++) {
+		for (int i = low; i <=high; i++ ) {
 			helper[i] = array[i];
 		}
 		
 		int helperLeft = low;
 		int helperRight = middle + 1;
 		int current = low;
-		
-		while(helperLeft <= middle && helperRight <=high) {
-			if (helper[helperLeft] <= helper[helperRight]) {
+		while(helperLeft <= middle && helperRight <= high) {
+			if(helper[helperLeft] <= helper[helperRight]) {
 				array[current] = helper[helperLeft];
 				helperLeft++;
 			} else {
@@ -33,5 +32,6 @@ public class a_10_0_mergesort {
 			}
 			current++;
 		}
+		
 	}
 }

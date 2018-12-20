@@ -10,19 +10,19 @@ public class a_10_4_sorted_search_no_sizes {
 	}
 	
 	int binarySearch(Listy list, int value, int low, int high) {
-		int mid;
+		int mid = 0;
 		
 		while(low <= high) {
 			mid = (low + high) /2;
 			int middle = list.elementAt(mid);
-			if (middle > value || middle == -1) {
+			if (middle < value || middle == -1) {
 				high = mid - 1;
-			} else if (middle < value) {
+			} else if (middle > value) {
 				low = mid + 1;
 			} else {
 				return mid;
 			}
 		}
-		return -1;
+		return - 1;
 	}
 }

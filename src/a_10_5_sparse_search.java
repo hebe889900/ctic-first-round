@@ -1,14 +1,16 @@
 
 public class a_10_5_sparse_search {
 	int search(String[] strings, String str, int first, int last) {
-		if (first > last) return -1;
-		int mid = (last + first) / 2;
+		if(first > last) {
+			return -1;
+		}
 		
-		if (strings[mid].isEmpty()) {
+		int mid = (last + first) /2;
+		if(strings[mid].isEmpty()) {
 			int left = mid - 1;
 			int right = mid + 1;
-			while (true) {
-				if (left < first && right > last) {
+			while(true) {
+				if(left < first && right > last) {
 					return -1;
 				} else if (right <= last && !strings[right].isEmpty()) {
 					mid = right;
@@ -17,8 +19,8 @@ public class a_10_5_sparse_search {
 					mid = left;
 					break;
 				}
-				right++;
-				left--;
+				right ++;
+				left --;
 			}
 		}
 		if(str.equals(strings[mid])) {

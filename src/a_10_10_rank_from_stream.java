@@ -1,4 +1,3 @@
-
 public class a_10_10_rank_from_stream {
 	RankNode root = null;
 	
@@ -23,7 +22,7 @@ public class a_10_10_rank_from_stream {
 		}
 		
 		public void insert(int d) {
-			if (d <= data) {
+			if(d <= data) {
 				if (left != null) {
 					left.insert(d);
 				} else {
@@ -40,10 +39,10 @@ public class a_10_10_rank_from_stream {
 		}
 		
 		public int getRank(int d) {
-			if (d == data) {
+			if(d == data) {
 				return left_size;
-			} else if (d < data) {
-				if (left == null) {
+			} else if(d < data) {
+				if(left == null) {
 					return -1;
 				} else {
 					return left.getRank(d);

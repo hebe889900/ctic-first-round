@@ -20,5 +20,7 @@ public class a_1_1_is_unique {
 		for (String word : words) {
 			System.out.println(word + ": " + isUniqueChars(word));
 		}
+		
+		System.out.println(4 & 1);
 	}	
 }
